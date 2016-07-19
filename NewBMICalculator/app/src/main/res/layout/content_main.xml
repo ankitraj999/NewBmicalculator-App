@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.raj.newbmicalculator.MainActivity"
+
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:showIn="@layout/activity_main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+ >
+
+
+
+    <TextView
+        style="@style/HeaderTextStyle"
+        android:id="@+id/nametextview"
+
+
+        android:layout_marginTop="50dp"
+        android:text="Name"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_below="@+id/nametextview"
+        android:id="@+id/edit_text_view"
+        android:layout_height="wrap_content"
+        android:hint = "First and Last name"
+        android:inputType="textCapWords"
+        android:padding="16dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_view"
+        android:id="@+id/linearlay">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="addButtonClicked"
+            android:text="add to DB"/>
+
+    </LinearLayout>
+    <TextView
+        style="@style/HeaderTextStyle"
+        android:id="@+id/gendertextview"
+        android:layout_below="@+id/linearlay"
+        android:layout_margin="4dp"
+
+        android:text="Gender"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/linearlayou1"
+        android:layout_below="@+id/gendertextview"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/check_box"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="Male"
+
+            android:textSize="16sp" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/check1_box"
+            android:text = "Female"
+            android:textSize="16sp"
+            android:layout_marginLeft="30dp"/>
+        </RadioGroup>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:id="@+id/linearlayout2"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearlayou1"
+        android:orientation="vertical">
+        <TextView
+            style="@style/HeaderTextStyle"
+            android:id="@+id/agetextview"
+            android:layout_margin="4dp"
+
+            android:text="age"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/edit_text_view2"
+            android:layout_height="wrap_content"
+            android:hint = "Age ( in years )"
+            android:inputType="number"
+            android:padding="16dp"/>
+        <TextView
+            style="@style/HeaderTextStyle"
+            android:id="@+id/heightextview"
+            android:layout_margin="4dp"
+
+
+            android:text="height"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/edit_text_view3"
+            android:layout_height="wrap_content"
+            android:hint = "Height ( in metres)"
+            android:inputType="numberDecimal"
+            android:padding="16dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:id="@+id/kbutton"
+            android:text=" know height in metres"/>
+        </LinearLayout>
+
+        <TextView
+            style="@style/HeaderTextStyle"
+            android:id="@+id/weighttextview"
+            android:layout_margin="4dp"
+
+            android:text="weight"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/edit_text_view4"
+            android:layout_height="wrap_content"
+            android:hint = "weight ( in kg)"
+            android:inputType="numberDecimal"
+            android:padding="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+
+            android:textSize="14sp"
+            android:id="@+id/textview"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Database Record:"
+            android:textColor="#D50000"
+            android:textSize="14sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+
+            android:textSize="14sp"
+            android:id="@+id/buckysText"/>
+
+
+
+
+
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/submitbutton"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearlayout2"
+        android:layout_centerHorizontal="true"
+        android:onClick="submitreport"
+        android:text="submit" />
+
+    <Button
+        android:layout_width="wrap_content"
+
+
+        android:layout_height="wrap_content"
+        android:id="@+id/delbutton"
+        android:text="Del from DB"
+        android:onClick="deleteButtonClicked"
+        android:layout_alignTop="@+id/linearlay"
+        android:layout_alignRight="@+id/edit_text_view"
+        android:layout_alignEnd="@+id/edit_text_view" />
+
+
+</RelativeLayout>
+    </ScrollView>

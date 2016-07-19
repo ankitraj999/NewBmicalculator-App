@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.raj.newbmicalculator.Main2Activity"
+    tools:showIn="@layout/activity_main2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/linearlayouts"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/HeaderTextStyle"
+            android:id="@+id/heightextview"
+            android:layout_margin="4dp"
+            android:text="Convert height in metres"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/edit_text_views1"
+        android:layout_height="wrap_content"
+        android:hint = "Height(in feet)"
+        android:inputType="number"
+        android:padding="16dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/edit_text_views2"
+        android:layout_height="wrap_content"
+        android:hint = "Height(in inches)"
+        android:inputType="number"
+        android:padding="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+
+            android:textSize="14sp"
+            android:id="@+id/textviews"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/submitbuttons"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearlayouts"
+        android:layout_centerHorizontal="true"
+        android:onClick="submitreports"
+        android:text="submit" />
+
+</RelativeLayout>
