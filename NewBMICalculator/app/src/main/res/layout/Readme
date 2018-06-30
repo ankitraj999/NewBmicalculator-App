@@ -1,0 +1,10 @@
+# xml file for this app
+
+#UI file for the app
+
+#content_main.xml
+It contain xml code for the first app activity which display various view and buttons.
+
+#content_main2.xml
+It contain xml code for the other app acitivity which display the result after processing the information entered in the 
+first acitivity.
