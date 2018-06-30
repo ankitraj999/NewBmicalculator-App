@@ -10,10 +10,10 @@ import android.content.ContentValues;
 public class MyDBHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "productDB.db";
-    public static final String TABLE_PRODUCTS = "products";
+    private static final String DATABASE_NAME = "BmiDB.db";
+    public static final String TABLE_PERSON = "person";
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_PRODUCTNAME = "productname";
+    public static final String COLUMN_PERSON_NAME = "person_name";
 
     //We need to pass database information along to superclass
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -22,38 +22,38 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE " + TABLE_PRODUCTS + "(" +
+        String query = "CREATE TABLE " + TABLE_PERSON + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_PRODUCTNAME + " TEXT " +
+                COLUMN_PERSON_NAME + " TEXT " +
                 ");";
         db.execSQL(query);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PERSON);
         onCreate(db);
     }
 
     //Add a new row to the database
     public void addProduct(Product product){
         ContentValues values = new ContentValues();
-        values.put(COLUMN_PRODUCTNAME, product.get_productname());
+        values.put(COLUMN_PERSON_NAME, product.get_productname());
         SQLiteDatabase db = getWritableDatabase();
-        db.insert(TABLE_PRODUCTS, null, values);
+        db.insert(TABLE_PERSON, null, values);
         db.close();
     }
 
     //Delete a product from the database
-    public void deleteProduct(String productName){
+    public void deleteProduct(String person_Name){
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_PRODUCTS + " WHERE " + COLUMN_PRODUCTNAME + "=\"" + productName + "\";");
+        db.execSQL("DELETE FROM " + TABLE_PERSON + " WHERE " + COLUMN_PERSON_NAME + "=\"" + person_Name + "\";");
     }
 
     public String databaseToString(){
         String dbString = "";
         SQLiteDatabase db = getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_PRODUCTS + " WHERE 1";
+        String query = "SELECT * FROM " + TABLE_PERSON + " WHERE 1";
 
         //Cursor points to a location in your results
         Cursor c = db.rawQuery(query, null);
@@ -62,8 +62,8 @@ public class MyDBHandler extends SQLiteOpenHelper {
 
         //Position after the last row means the end of the results
         while (!c.isAfterLast()) {
-            if (c.getString(c.getColumnIndex("productname")) != null) {
-                dbString += c.getString(c.getColumnIndex("productname"));
+            if (c.getString(c.getColumnIndex("person_name")) != null) {
+                dbString += c.getString(c.getColumnIndex("person_name"));
                 dbString += "\n";
             }
             c.moveToNext();
